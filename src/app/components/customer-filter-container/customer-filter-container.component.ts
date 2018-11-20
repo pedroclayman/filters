@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-filter-container.component.scss']
 })
 export class CustomerFilterContainerComponent implements OnInit {
+  filters = [];
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onDiscardFilters() {
+    this.filters = [];
+  }
+
+  onApplyFilters() {
+    console.log(this.filters);
+  }
 }
