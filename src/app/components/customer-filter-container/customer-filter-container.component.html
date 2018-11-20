@@ -12,6 +12,14 @@
       [step]="step"
       [order]="i+1"
     ></app-step>
+    <button
+      class="add-funnel-button"
+      mat-button
+      color="accent"
+      (click)="onAddFunnel()"
+    >
+      <mat-icon>add</mat-icon> ADD FUNNEL STEP
+    </button>
   </div>
   <button
     mat-flat-button

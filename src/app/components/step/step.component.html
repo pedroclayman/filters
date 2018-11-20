@@ -1,10 +1,24 @@
 <div class="step-title">
   <span>{{order}} STEP: {{title}}</span>
 </div>
-<app-event-select (eventSelected)="onEventSelected($event)"></app-event-select>
-<button
-  mat-button
-  *ngIf="!step.attributes"
->
-  <mat-icon>add</mat-icon> Add an event attribute
-</button>
+<div class="attributes-wrapper">
+  <div class="event-column">
+    <app-event-select (eventSelected)="onEventSelected($event)"></app-event-select>
+    <button
+      mat-button
+      color="accent"
+      *ngIf="!step.attributes.length"
+      (click)="onAddAttribute()"
+    >
+      <mat-icon>add</mat-icon> Add an event attribute
+    </button>
+  </div>
+  <div class="attributes-column">
+    <app-attribute *ngFor="let attribute of step.attributes"></app-attribute>
+    <button
+      mat-button
+      color="accent"
+      *ngIf="step.attributes.length"
+    >Refine more</button>
+  </div>
+</div>

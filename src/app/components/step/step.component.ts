@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FilterStep } from 'src/app/models/filter-step';
+import { EventAttribute } from 'src/app/models/event-attribute';
 
 @Component({
   selector: 'app-step',
@@ -9,7 +10,6 @@ import { FilterStep } from 'src/app/models/filter-step';
 export class StepComponent implements OnInit {
   @Input() step: FilterStep;
   @Input() order: number;
-
   title: string;
 
   constructor() { }
@@ -18,7 +18,12 @@ export class StepComponent implements OnInit {
     this.title = this.step.eventName;
   }
 
-  onEventSelected(event) {    
+  onEventSelected(event) {
     this.title = event;
+    this.step.eventName = event;
+  }
+
+  onAddAttribute() {
+    this.step.attributes = [...this.step.attributes, new EventAttribute()];
   }
 }

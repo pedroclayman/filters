@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter } from 'src/app/models/filter';
+import { FilterStep } from 'src/app/models/filter-step';
 
 @Component({
   selector: 'app-customer-filter-container',
@@ -21,5 +22,9 @@ export class CustomerFilterContainerComponent implements OnInit {
 
   onApplyFilters() {
     console.log(this.filter);
+  }
+
+  onAddFunnel() {
+    this.filter.steps = [...this.filter.steps, new FilterStep()];
   }
 }
