@@ -26,4 +26,8 @@ export class StepComponent implements OnInit {
   onAddAttribute() {
     this.step.attributes = [...this.step.attributes, new EventAttribute()];
   }
+
+  onDeleteAttribute(attribute: EventAttribute) {
+    this.step.attributes = this.step.attributes.filter(a => a.name !== attribute.name);
+  }
 }

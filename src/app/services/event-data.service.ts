@@ -17,4 +17,30 @@ export class EventDataService {
       'C2'
     ];
   }
+
+  getEventAttributes(event: string) {
+    return [
+      'price',
+      'timestamp',
+      'index'
+    ];
+  }
+
+  getNumberOperators() {
+    return [
+      { value: 'equal', text: 'equal to' },
+      { value: 'between', text: 'in between' },
+      { value: 'less', text: 'less than' },
+      { value: 'greater', text: 'greater than' }
+    ];
+  }
+
+  getStringOperators() {
+    return [
+      { value: 'equal', text: 'equals'},
+      { value: 'not-equal', text: 'does not equal'},
+      { value: 'contain', text: 'contains'},
+      { value: 'not-contain', text: 'does not contain'}
+    ];
+  }
 }

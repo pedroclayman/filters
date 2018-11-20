@@ -1,1 +1,55 @@
+<mat-form-field>
+  <mat-select
+    placeholder="Select attribute"
+    (selectionChange)="onSelectionChange($event)"
+  >
+    <mat-option
+      *ngFor="let attribute of attributeNames"
+      [value]="attribute"
+    >
+      {{attribute}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
+<ng-container *ngIf="attribute.name">
+  <mat-form-field>
+    <mat-select
+      placeholder="Operator"
+      (selectionChange)="onOperatorChange($event)"
+    >
+      <mat-optgroup label="String">
+        <mat-option
+          *ngFor="let operator of stringOperators"
+          [value]="operator.value"
+        >
+          {{operator.text}}
+        </mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Number">
+        <mat-option
+          *ngFor="let operator of numberOperators"
+          [value]="operator.value"
+        >
+          {{operator.text}}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      (change)="onValueChange($event)"
+    >
+  </mat-form-field>
+
+  <button
+    mat-button
+    color="accent"
+    (click)="onDeleteAttribute()"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</ng-container>

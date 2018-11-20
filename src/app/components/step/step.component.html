@@ -7,18 +7,23 @@
     <button
       mat-button
       color="accent"
-      *ngIf="!step.attributes.length"
+      *ngIf="!step.attributes.length && step.eventName"
       (click)="onAddAttribute()"
     >
       <mat-icon>add</mat-icon> Add an event attribute
     </button>
   </div>
   <div class="attributes-column">
-    <app-attribute *ngFor="let attribute of step.attributes"></app-attribute>
+    <app-attribute
+      *ngFor="let attribute of step.attributes"
+      [attribute]="attribute"
+      (attributeDeleted)="onDeleteAttribute($event)"
+    ></app-attribute>
     <button
       mat-button
       color="accent"
       *ngIf="step.attributes.length"
+      (click)="onAddAttribute()"
     >Refine more</button>
   </div>
 </div>
