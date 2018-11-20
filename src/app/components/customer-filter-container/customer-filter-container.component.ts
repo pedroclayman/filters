@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Filter } from 'src/app/models/filter';
 
 @Component({
   selector: 'app-customer-filter-container',
@@ -6,18 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-filter-container.component.scss']
 })
 export class CustomerFilterContainerComponent implements OnInit {
-  filters = [];
+  filter: Filter;
 
   constructor() { }
 
   ngOnInit() {
+    this.filter = new Filter();
   }
 
   onDiscardFilters() {
-    this.filters = [];
+    this.filter = new Filter();
   }
 
   onApplyFilters() {
-    console.log(this.filters);
+    console.log(this.filter);
   }
 }

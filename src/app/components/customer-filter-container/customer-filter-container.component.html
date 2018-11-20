@@ -7,11 +7,14 @@
     >DISCARD FILTERS</button>
   </div>
   <div class="steps">
-    
+    <app-step
+      *ngFor="let step of filter.steps"
+      [step]="step"
+    ></app-step>
   </div>
   <button
     mat-flat-button
     color="primary"
-    (click)="onApplyFilters"
+    (click)="onApplyFilters()"
   >Apply filters</button>
 </div>
