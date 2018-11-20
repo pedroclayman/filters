@@ -8,10 +8,17 @@ import { FilterStep } from 'src/app/models/filter-step';
 })
 export class StepComponent implements OnInit {
   @Input() step: FilterStep;
+  @Input() order: number;
+
+  title: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.title = this.step.eventName;
   }
 
+  onEventSelected(event) {    
+    this.title = event;
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { EventDataService } from 'src/app/services/event-data.service';
 
 @Component({
   selector: 'app-event-select',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-select.component.scss']
 })
 export class EventSelectComponent implements OnInit {
+  @Output() eventSelected = new EventEmitter<string>();
+  events: string[];
 
-  constructor() { }
+  constructor(
+    private eventData: EventDataService
+  ) { }
 
   ngOnInit() {
+    this.events = this.eventData.getEvents();
   }
 
+  onSelectionChange(e) {
+    this.eventSelected.emit(e.value);
+  }
 }

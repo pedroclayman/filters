@@ -1,1 +1,13 @@
-Event selector
+<mat-form-field>
+  <mat-select
+    placeholder="Select event"
+    (selectionChange)="onSelectionChange($event)"
+  >
+    <mat-option
+      *ngFor="let event of events"
+      [value]="event"
+    >
+      {{event}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
