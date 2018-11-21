@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Filter } from 'src/app/models/filter';
-import { FilterStep } from 'src/app/models/filter-step';
+import { Component, OnInit } from "@angular/core";
+import { Filter } from "../../models/filter";
+import { FilterStep } from "../../models/filter-step";
 
 @Component({
-  selector: 'app-customer-filter-container',
-  templateUrl: './customer-filter-container.component.html',
-  styleUrls: ['./customer-filter-container.component.scss']
+  selector: "app-customer-filter-container",
+  templateUrl: "./customer-filter-container.component.html",
+  styleUrls: ["./customer-filter-container.component.scss"]
 })
 export class CustomerFilterContainerComponent implements OnInit {
   filter: Filter;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.filter = new Filter();

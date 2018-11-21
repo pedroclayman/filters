@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { EventDataService } from 'src/app/services/event-data.service';
-import { EventAttribute } from 'src/app/models/event-attribute';
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import { EventDataService } from "../../services/event-data.service";
+import { EventAttribute } from "../../models/event-attribute";
 
 @Component({
-  selector: 'app-attribute',
-  templateUrl: './attribute.component.html',
-  styleUrls: ['./attribute.component.scss']
+  selector: "app-attribute",
+  templateUrl: "./attribute.component.html",
+  styleUrls: ["./attribute.component.scss"]
 })
 export class AttributeComponent implements OnInit {
   @Input() eventName: string;
@@ -15,9 +15,7 @@ export class AttributeComponent implements OnInit {
   numberOperators: any[];
   stringOperators: any[];
 
-  constructor(
-    private eventData: EventDataService
-  ) { }
+  constructor(private eventData: EventDataService) {}
 
   ngOnInit() {
     this.attributeNames = this.eventData.getEventAttributes(this.eventName);
